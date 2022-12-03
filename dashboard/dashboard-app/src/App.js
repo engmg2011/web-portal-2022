@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import CreateUser from "./pages/users/CreateUser";
 import UpdateUser from "./pages/users/UpdateUser";
 import ListUsers from "./pages/users/ListUsers";
+import Container from "react-bootstrap/Container";
 
 
 function App() {
@@ -13,13 +14,15 @@ function App() {
       <Router>
           <div className="App">
               <NavBar title="Home Page" />
-
-              <Routes>
-                  <Route exact path='/' element={<Home/>}></Route>
-                  <Route exact path='/users/create' element={<CreateUser />}></Route>
-                  <Route exact path='/users/update' element={<UpdateUser />}></Route>
-                  <Route exact path='/users' element={<ListUsers />}></Route>
-              </Routes>
+              <div className="clearfix"></div>
+              <Container>
+                  <Routes>
+                      <Route exact path='/' element={<Home/>}></Route>
+                      <Route exact path='/users/create' element={<CreateUser />}></Route>
+                      <Route exact path='/users/update' element={<UpdateUser />}></Route>
+                      <Route exact path='/users' element={<ListUsers />}></Route>
+                  </Routes>
+              </Container>
 
           </div>
       </Router>
