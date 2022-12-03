@@ -1,0 +1,18 @@
+version: '3.8'
+
+volumes:
+  composer-vol:
+
+services:
+  web:
+    build:
+      context: ./dashboard
+    container_name: dashboard-portal
+    restart: unless-stopped
+    ports:
+      - "8080:3000"
+
+networks:
+  app-network:
+    driver: bridge
+  db:
