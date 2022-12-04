@@ -2,3 +2,4 @@
 ./logs/*
 *.log
 /database/mysql/#innodb_temp/
+/logs/nginx/
