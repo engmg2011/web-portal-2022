@@ -1,18 +1,6 @@
 # docker-compose.yml
 version: "3.8"
 services:
-  nginx:
-    container_name: nginx
-    build: ./docker/nginx
-    command: nginx -g "daemon off;"
-    links:
-      - php
-    ports:
-      - "8000:80"
-    volumes:
-      - ./logs/nginx:/var/log/nginx
-      - ./src/backend-portal:/var/www/html/backend-portal
-
   php:
     container_name: php
     build: ./docker/php
@@ -61,5 +49,22 @@ services:
       context: ./dashboard-app
     container_name: dashboard-app
     restart: unless-stopped
+#    volumes:
+#      - /app/build:/usr/share/nginx/html
     ports:
-      - "8080:3000"
+      - "3000:3000"
+
+  nginx:
+    container_name: nginx
+    build: ./docker/nginx
+    command: nginx -g "daemon off;"
+    links:
+      - php
+      - frontend
+    ports:
+      - "8000:80"
+#      - "8080:3000"
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+      - ./src/backend-portal:/var/www/html/backend-portal
+#      - /app/build:/usr/share/nginx/html

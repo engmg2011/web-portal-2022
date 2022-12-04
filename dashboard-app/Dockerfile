@@ -18,6 +18,14 @@ EXPOSE 3000
 # Start the app
 CMD [ "npx", "serve", "build" ]
 
+
+
+
+
+
+
+
+
 # Production
 #FROM nginx:stable-alpine
 #COPY --from=build /app/build /usr/share/nginx/html
