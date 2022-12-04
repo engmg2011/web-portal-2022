@@ -25,13 +25,13 @@ class CustomersController extends Controller
     {
 
         $request->validate([
-            'email' => 'email|unique:customers|max:255',
+            'email' => 'email|unique:customers,email,'.$id.'|max:255',
             'username' => 'max:255',
         ]);
 
         Customer::find($id)->update($request->only(['username', 'email']));
 
-        return response()->json(['message'=>'Created successfully']);
+        return response()->json(['message'=>'Updated successfully']);
     }
 
     public function list()
@@ -45,5 +45,12 @@ class CustomersController extends Controller
         if(!$customer)  return response()->json(['message'=>'Customer doesn\'t exist'] , 400);
         $customer->delete();
         return response()->json(['message'=>'Deleted successfully']);
+    }
+
+    public function getCustomer($id)
+    {
+        $customer = Customer::find($id);
+        if(!$customer)  return response()->json(['message'=>'Customer doesn\'t exist'] , 400);
+        return response()->json(['message'=>'success', 'data'=> $customer]);
     }
 }

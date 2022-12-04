@@ -19,7 +19,7 @@ function App() {
                   <Routes>
                       <Route exact path='/' element={<Home/>}></Route>
                       <Route exact path='/users/create' element={<CreateUser />}></Route>
-                      <Route exact path='/users/update' element={<UpdateUser />}></Route>
+                      <Route exact path='/users/update/:userId' element={<UpdateUser />}></Route>
                       <Route exact path='/users' element={<ListUsers />}></Route>
                   </Routes>
               </Container>
