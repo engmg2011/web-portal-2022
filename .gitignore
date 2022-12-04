@@ -3,3 +3,5 @@
 *.log
 /database/mysql/#innodb_temp/
 /logs/nginx/
+/database/mysql/binlog.*
+/database

@@ -50,9 +50,9 @@ services:
     container_name: dashboard-app
     restart: unless-stopped
 #    volumes:
-#      - /app/build:/usr/share/nginx/html
+#      - ./app/build:/app/build
     ports:
-      - "3000:3000"
+      - "8080:3000"
 
   nginx:
     container_name: nginx
@@ -67,4 +67,4 @@ services:
     volumes:
       - ./logs/nginx:/var/log/nginx
       - ./src/backend-portal:/var/www/html/backend-portal
-#      - /app/build:/usr/share/nginx/html
+#      - ./app/build:/usr/share/nginx/html
