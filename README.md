@@ -10,6 +10,10 @@
 
 ### Clone and run command
 `docker-compose up`
+- Then open your "php" container
+`docker exec -it <container name> /bin/sh`
+- Run the following command to migrate the database
+`php artisan migrate`
 
 ### Your project should be up and running on
 http://localhost:8080
